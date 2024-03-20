@@ -4,7 +4,7 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div className='pt-[4rem] md:pt-[8rem] pb-[4rem] bg-[#02050a]'>
+        <div className='pt-[4rem] md:pt-[8rem] pb-[4rem] bg-[#02050a]' id="blogs">
            <h1 className='heading'>
             MY
             <span className='text-yellow-400'>BLOG</span>
@@ -36,7 +36,7 @@ const Blog = () => {
 
                     </div>
                       
-                      <p className='mt-[1rem] text-white text-[18px] font-semibold'>Next js Fullstack Development</p>
+                      <p className='mt-[1rem] text-white text-[18px] font-semibold'>OOP Fundamental</p>
 
                 </div>
                 
@@ -98,7 +98,7 @@ const Blog = () => {
 
                     </div>
                       
-                      <p className='mt-[1rem] text-white text-[18px] font-semibold'>Next Js New Features</p>
+                      <p className='mt-[1rem] text-white text-[18px] font-semibold'>Mongoose Database</p>
 
                 </div>
                 

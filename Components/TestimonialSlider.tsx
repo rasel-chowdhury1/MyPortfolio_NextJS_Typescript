@@ -22,6 +22,10 @@ const responsive = {
   };
 
 const TestimonialSlider = () => {
+  const Review1 = "Despite my limited knowledge, they crafted a beautiful and functional website that exceeded my expectations.";
+  const Review2 = "Patiently guiding me through each step, they crafted a stunning and functional website that perfectly captured my vision."
+  const Review3 = " Their attention to detail and commitment to customer satisfaction were truly impressive."
+  const Review4 = 'They crafted a beautiful and functional website that exceeded my expectations.'
     return (
         <Carousel
          additionalTransfrom={0}
@@ -33,10 +37,10 @@ const TestimonialSlider = () => {
          responsive={responsive}
          itemClass='item'
         >
-            <ClientReview image='/images/c1.jpg' name='Nazrul Islam' role='web developer'/>
-            <ClientReview image='/images/c2.jpg' name='Sayed Hasan' role='React Native developer'/>
-            <ClientReview image='/images/c1.jpg' name='Hridoy' role='SEO'/>
-            <ClientReview image='/images/c1.jpg' name='Parvez Islam' role='Web Designer'/>
+            <ClientReview image='/images/c1.jpg' name='Nazrul Islam' role='web developer' review={Review1}/>
+            <ClientReview image='/images/c2.jpg' name='Sayed Hasan' role='React Native developer' review={Review2}/>
+            <ClientReview image='/images/c1.jpg' name='Hridoy' role='SEO' review={Review3}/>
+            <ClientReview image='/images/c2.jpg' name='Parvez Islam' role='Web Designer' review={Review4}/>
         </Carousel>
     );
 };

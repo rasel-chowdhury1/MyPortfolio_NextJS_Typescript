@@ -3,8 +3,16 @@ import Image from 'next/image';
 import React from 'react';
 
 const About = () => {
+
+    const CV_URL = 'https://drive.google.com/file/d/18TdzCDr3IqR4hRENUAO4rKYWF8L29f-B/view'
+
+    const handleDownloadCVClick = () => {
+        // Open the CV link in a new tab
+        window.open(CV_URL, '_blank');
+      };
+
     return (
-        <div className='bg-[#121121] pb-[3rem] pt-[4rem] md:pt-[8rem] '>
+        <div className='bg-[#121121] pb-[3rem] pt-[4rem] md:pt-[8rem]' id="about">
            <div className='grid grid-cols-1 md:grid-cols-2 w-[80%] mx-auto gap-[3rem] items-center'>
 
               <div>
@@ -19,10 +27,10 @@ const About = () => {
 
                 <div className='mb-[3rem] flex items-center md:space-x-10 '>
                    <span className='w-[100px] hidden md:block h-[5px] bg-slate-400 rounded-sm'></span>
-                   <p className='text-[19px] text-slate-300 w-[80%] '>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut velit error pariatur fugit ea, facilis omnis praesentium placeat quod similique!</p>
+                   <p className='text-[19px] text-slate-300 w-[80%] '>I am a full stack developer with a focus on the MERN stack. With experience in both front-end and back-end development. I have experience working with JavaScript, React, Node.js, Express, MongoDB, SQL, HTML, CSS, and Git. I am a quick learner and I am always looking to expand my knowledge and skill set. I am a team player and I am excited to work with others to create amazing applications.</p>
                 </div>
 
-                <button className='px-[2rem] hover:bg-yellow-400 transition-all duration-200 py-[1rem] text-[18px] font-bold uppercase bg-[#55e6a5] text-black flex items-center space-x-2'>
+                <button className='px-[2rem] hover:bg-yellow-400 transition-all duration-200 py-[1rem] text-[18px] font-bold uppercase bg-[#55e6a5] text-black flex items-center space-x-2' onClick={handleDownloadCVClick}>
                     <p>Download CV</p>
                     <ArrowDownTrayIcon className='w-[1.6rem] h-[1.7rem] text-black'/>
                 </button>
