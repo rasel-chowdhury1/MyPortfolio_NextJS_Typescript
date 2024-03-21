@@ -11,6 +11,7 @@ import Testimonial from '@/Components/Testimonial';
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Contact from '@/Components/Contact';
 
 const HomePage = () => {
 
@@ -76,6 +77,9 @@ const HomePage = () => {
 
           {/* Blogs */}
           <Blog/>
+
+          {/* Contact */}
+          <Contact/>
 
           {/* Footer */}
           <Footer/>
