@@ -3,6 +3,8 @@ import Particle from './Particle';
 import TextEffect from './TextEffect';
 import Image from 'next/image';
 import { ArrowDownTrayIcon, PlayCircleIcon } from '@heroicons/react/20/solid';
+import { BsDiscord } from 'react-icons/bs';
+import { FaFacebookF, FaGithub, FaLinkedinIn} from 'react-icons/fa';
 
 const Hero = () => {
 
@@ -19,6 +21,22 @@ const Hero = () => {
         window.open(CV_URL, '_blank');
       };
 
+      const handleGithub = () => {
+        window.open('https://github.com/rasel-chowdhury1', '_blank');
+      }
+  
+      const handleLinkedin = () => {
+        window.open('https://www.linkedin.com/in/rasel-chowdhury-4a27a220a', '_blank');
+      }
+  
+      const handleDiscord = () => {
+        window.open('https://discord.com/users/RaselChy#3939', '_blank');
+      }
+  
+      const handleFacebook = () => {
+        window.open('https://www.facebook.com/rasel.chyjoyntu/', '_blank');
+      }
+
     return (
         <div className="h-[88vh] bg-[url('/images/banner.jpg')] mt-[10vh] bg-cover bg-center " id="hero">
             <Particle/>
@@ -31,6 +49,17 @@ const Hero = () => {
                 <p className="mt-[1.5rem] text-[18px] text-[#ffffff92]">
                 Drive innovation by designing, implementing, and maintaining cutting-edge web applications.
                 </p>
+
+                <div className='flex  items-center gap-4 mt-10'>
+                    <span className='bg-[#55e6a5] p-3 rounded-full cursor-pointer hover:bg-yellow-400' onClick={handleGithub}><FaGithub/></span>
+
+                    <span className='bg-[#55e6a5] p-3 rounded-full cursor-pointer hover:bg-yellow-400' onClick={handleLinkedin}><FaLinkedinIn /></span>
+
+                    <span className='bg-[#55e6a5] p-3 rounded-full cursor-pointer hover:bg-yellow-400' onClick={handleDiscord}><BsDiscord /></span>
+
+                    <span className='bg-[#55e6a5] p-3 rounded-full cursor-pointer hover:bg-yellow-400' onClick={handleFacebook}><FaFacebookF/></span>
+                </div>
+
                 <div className="mt-[2rem] flex-col space-y-6 sm:space-y-0 sm:flex sm:flex-row items-center sm:space-x-6">
                   <button className="px-[2rem] hover:bg-yellow-400 transition-all duration-200 py-[1rem] text-[18px] font-bold uppercase bg-[#55e6a5] text-black flex items-center space-x-2" onClick={handleHireMeClick} >
                     <p>Hire Me</p>

@@ -54,7 +54,7 @@ const HomePage = () => {
        <div>
         {/* NavBar */}
         <MobileNav nav={nav} closeNav={closeNav}/>
-        <Nav openNav={openNav}/>
+        <Nav openNav={openNav} />
 
         {/* Hero Section */}
         <Hero/>
