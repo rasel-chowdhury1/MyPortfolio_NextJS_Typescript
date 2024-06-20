@@ -14,14 +14,15 @@ const Skills = () => {
                 <div>
                     <SkillsItem title="Complete Web Development" year="2020 - 2021" des={descriptionWeb}/>
                     {/* <SkillsItem title="Mern Stack Developer" year="2016 - 2020"/> */}
-                    <SkillsLanguage skill1='html' skill2='css' skill3='javascript' skill4='Firebase' skill5='MongoDB' level1='w-[91%]' level2='w-[88%]' level3='w-[80%]' level4='w-[70%]' level5='w-[85%]'/>
+                    <SkillsLanguage skill1='html' skill2='css' skill3='javascript' skill4='Firebase' skill5='MongoDB' 
+                    skill6='Mongoose'  level1='w-[91%]' level2='w-[88%]' level3='w-[80%]' level4='w-[70%]' level5='w-[85%]' level6='w-[90%]' />
                 </div>
 
                 <div>
                     <SkillsItem title="CSE Fundamentals with Phitron" year="2022 - 2023" des={descriptionPhitron}/>
                     {/* <SkillsItem title="Node js Developer" year="2021 - 2023"/> */}
                     <SkillsLanguage skill1='React js' skill2='Express js' skill3='MySQL'
-                    skill4='Python' skill5='Django' level1='w-[81%]' level2='w-[78%]' level3='w-[85%]' level4='w-[70%]' level5='w-[60%]'/>
+                    skill4='Python' skill5='Django' skill6='Typescirpt' level1='w-[81%]' level2='w-[78%]' level3='w-[85%]' level4='w-[70%]' level5='w-[60%]' level6='w-[95%]'/>
                 </div>
 
 

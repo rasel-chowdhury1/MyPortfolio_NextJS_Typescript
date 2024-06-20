@@ -1,10 +1,48 @@
 
 import { DevicePhoneMobileIcon, EnvelopeIcon, FaceFrownIcon, MapIcon } from '@heroicons/react/20/solid';
-import React from 'react';
+import React, { useState } from 'react';
 import { BsDiscord } from 'react-icons/bs';
 import { FaFacebookF, FaGithub, FaLinkedinIn} from 'react-icons/fa';
-import { FaSquareFacebook } from 'react-icons/fa6';
+import emailjs from "@emailjs/browser";
+import { ColorRing } from 'react-loader-spinner';
+
 const Contact = () => {
+
+   const [name, setName] = useState("");
+   const [email, setEmail] = useState("");
+   const [message, setMessage] = useState("");
+
+   const [done, setDone] = useState(false);
+   
+   const handleSubmit = (e) => {
+      setDone(true)
+     e.preventDefault();
+     const serviceId = "service_fb80wkq";
+     const templateId = "template_77fzhdj";
+     const publicKey = "2CCIa6rfb6rhZV-d6";
+ 
+     const templateParams = {
+       from_name: name,
+       from_email: email,
+       to_name: "Rasel Chowdhury",
+       message: message,
+     };
+     emailjs
+       .send(serviceId, templateId, templateParams, publicKey)
+       .then((response) => {
+         console.log("Email sent successfully", response);
+         alert("Email send successfully... Thank You.")
+         setDone(false)
+         setName("");
+         setEmail("");
+         setMessage("");
+       })
+       .catch((error) => {
+         console.log("Error sending email", error);
+         toast.error("Error sending email. Please try again.");
+       });
+   };
+
     const handleGithub = () => {
       window.open('https://github.com/rasel-chowdhury1', '_blank');
     }
@@ -53,12 +91,39 @@ const Contact = () => {
 
              </div>
 
-             <div className='flex flex-col justify-center items-center gap-2 w-full'>
-                <input type="text" name="" placeholder='Enter your name' className='px-4 py-4 w-full border-green-500 rounded-lg text-[18px] bg-slate-100 focus:outline-none focus:border-green-600' />
-                <input type="email" name="" placeholder='Enter your email' className='px-4 py-4 w-full border-green-500 rounded-lg text-[18px] bg-slate-100 focus:outline-none focus:border-green-600' />
-                <textarea className='px-4 py-4 w-full border-green-500 rounded-lg text-[18px] bg-slate-100 focus:outline-none focus:border-green-600' name="" cols={30} rows={5}></textarea>
-                <button className='bg-[#55e6a5] text-white  px-4 py-3 w-full rounded-lg hover:bg-yellow-400 cursor-pointer'>Submit</button>
-             </div>
+             <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center gap-2 w-full'>
+                <input 
+                type="text" 
+                name="name" 
+                placeholder='Enter your name' 
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className='px-4 py-4 w-full border-green-500 rounded-lg text-[18px] bg-slate-100 focus:outline-none focus:border-green-600' />
+
+                <input 
+                type="email" 
+                name="email" 
+                placeholder='Enter your email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className='px-4 py-4 w-full border-green-500 rounded-lg text-[18px] bg-slate-100 focus:outline-none focus:border-green-600' />
+                <textarea 
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Write here details" 
+                required
+                className='px-4 py-4 w-full border-green-500 rounded-lg text-[18px] bg-slate-100 focus:outline-none focus:border-green-600' name="message" cols={30} rows={5}></textarea>
+                <button className='bg-[#55e6a5] flex items-center justify-center gap-2 text-white  px-4 py-3 w-full rounded-lg hover:bg-yellow-400 cursor-pointer'>Submit {done && <ColorRing
+  visible={true}
+  height="25"
+  width="25"
+  ariaLabel="color-ring-loading"
+  wrapperStyle={{}}
+  wrapperClass="color-ring-wrapper"
+  colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}></ColorRing>}</button>
+             </form>
            </div>
 
            
