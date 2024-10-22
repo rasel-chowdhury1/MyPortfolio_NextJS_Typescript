@@ -14,7 +14,7 @@ const Contact = () => {
 
    const [done, setDone] = useState(false);
    
-   const handleSubmit = (e) => {
+   const handleSubmit = (e: any) => {
       setDone(true)
      e.preventDefault();
      const serviceId = "service_fb80wkq";

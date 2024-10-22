@@ -13,6 +13,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Contact from '@/Components/Contact';
 
+
 const HomePage = () => {
 
   const [nav, setNav] = useState(false);

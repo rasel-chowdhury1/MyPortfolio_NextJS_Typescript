@@ -1,12 +1,15 @@
+
 import { Bars3Icon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
 import React from 'react';
-
+import { useSelector } from 'react-redux';
 interface Props {
     openNav: ()=>void;
 }
 
 const Nav = ({openNav}:Props) => {
+    
+
     return (
         <div className='w-[100%] fixed z-[10000] top-0 h-[12vh] bg-[#141c27] shadow-md'>
             <div className='flex items-center justify-between w-[80%] mx-auto h-[100%]'>
@@ -20,7 +23,8 @@ const Nav = ({openNav}:Props) => {
                 <Link href="#projects" className='nav-link'>PROJECT</Link>
                 <Link href="#blogs" className='nav-link'>BLOG</Link>
                 <Link href='#contact' className='nav-link'>CONTACT</Link>
-
+                
+        
                 <div onClick={openNav}>
                     <Bars3Icon className='w-[2rem] md:hidden h-[2rem] cursor-pointer text-yellow-300'/>
                 </div>

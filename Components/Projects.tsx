@@ -1,42 +1,51 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+interface Project {
+  _id: string;
+  title: string;
+  des: string;
+  img: string;
+  liveLink: string;
+  githubLink: string;
+}
 import Image from 'next/image';
+import ProjectCard from './ProjectCard';
+
 
 const Projects = () => {
+  
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get('https://my-project-backend-sigma.vercel.app/api/projects'); // Replace with your API endpoint
+        setProjects(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError('Failed to fetch projects');
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+  console.log({projects})
     return (
         <div className='bg-[#02050a] pt-[4rem] md:pt-[8rem] pb-[1rem] ' id='projects'>
             <h1 className='heading'>Pro<span className='text-yellow-400'>ject</span>
             </h1>
             <div className='w-[80%] pt-[2rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem]'>
-               {/* Project 1 */}
-               <div data-aos="fade-up">
-                 <div className='transform cursor-pointer hover:-translate-y-6 transition-all duration-200 relative w-[100%] h-[200px] md:h-[300px] '>
-                   <Image src='/images/p1.jpg' alt='portfolio' layout='fill' className='object-contain' />
-                 </div>
-               </div>
-                {/* Project 2 */}
-               <div data-aos="fade-up" data-aos-delay='300'>
-                 <div className='transform cursor-pointer hover:-translate-y-6 transition-all duration-200 relative w-[100%] h-[200px] md:h-[300px] '>
-                   <Image src='/images/p2.jpg' alt='portfolio' layout='fill' className='object-contain' />
-                 </div>
-               </div>
-                {/* Project 3 */}
-               <div data-aos="fade-up" data-aos-delay='600'>
-                 <div className='transform cursor-pointer hover:-translate-y-6 transition-all duration-200 relative w-[100%] h-[200px] md:h-[300px] '>
-                   <Image src='/images/p3.jpg' alt='portfolio' layout='fill' className='object-contain' />
-                 </div>
-               </div>
-                {/* Project 4 */}
-               <div data-aos="fade-up" data-aos-delay='900'>
-                 <div className='transform cursor-pointer hover:-translate-y-6 transition-all duration-200 relative w-[100%] h-[200px] md:h-[300px] '>
-                   <Image src='/images/p4.jpg' alt='portfolio' layout='fill' className='object-contain' />
-                 </div>
-               </div>
-                {/* Project 5 */}
-               <div data-aos="fade-up" data-aos-delay='1200'>
-                 <div className='transform cursor-pointer hover:-translate-y-6 transition-all duration-200 relative w-[100%] h-[200px] md:h-[300px] '>
-                   <Image src='/images/p5.jpg' alt='portfolio' layout='fill' className='object-contain' />
-                 </div>
-               </div>
+               {
+                projects.map((pro) => <ProjectCard key={pro._id} data={pro} />)
+               }
 
             </div>
         </div>

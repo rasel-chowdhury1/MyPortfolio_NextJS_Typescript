@@ -21,8 +21,8 @@ const Skills = () => {
                 <div>
                     <SkillsItem title="CSE Fundamentals with Phitron" year="2022 - 2023" des={descriptionPhitron}/>
                     {/* <SkillsItem title="Node js Developer" year="2021 - 2023"/> */}
-                    <SkillsLanguage skill1='React js' skill2='Express js' skill3='MySQL'
-                    skill4='Python' skill5='Django' skill6='Typescirpt' level1='w-[81%]' level2='w-[78%]' level3='w-[85%]' level4='w-[70%]' level5='w-[60%]' level6='w-[95%]'/>
+                    <SkillsLanguage skill1='React js' skill2='Express js' skill3='Next JS'
+                    skill4='Typescirpt' skill5='Django' skill6='MySQl' level1='w-[81%]' level2='w-[78%]' level3='w-[85%]' level4='w-[70%]' level5='w-[60%]' level6='w-[95%]'/>
                 </div>
 
 

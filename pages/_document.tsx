@@ -1,5 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { ToastContainer } from "react-toastify";
+import { Provider } from "react-redux";
+
 
 
 export default function Document() {
@@ -11,7 +12,7 @@ export default function Document() {
         <title>Rasel Chowdhury Portfolio</title>
       </Head>
       <body className="font-primary">
-        <Main />
+          <Main />
         <NextScript />
       </body>
     </Html>
